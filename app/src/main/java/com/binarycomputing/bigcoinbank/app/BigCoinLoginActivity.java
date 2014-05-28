@@ -58,8 +58,6 @@ public class BigCoinLoginActivity extends Activity implements
         setupListeners();
         setupViews();
 
-
-
     }
     // Define Controls here
     private void setupGlobal(){
@@ -69,7 +67,7 @@ public class BigCoinLoginActivity extends Activity implements
         mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                mGoogleApiClient.connect();
             }
         };
     }
@@ -97,7 +95,6 @@ public class BigCoinLoginActivity extends Activity implements
                     .addOnConnectionFailedListener(this)
                     .build();
         }
-        mGoogleApiClient.connect();
     }
 
     /**
@@ -147,7 +144,8 @@ public class BigCoinLoginActivity extends Activity implements
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.i(TAG, "GoogleApiClient connected");
-        // TODO: Start making API requests.
+        Intent intent = new Intent(this,ShowStatsActivity.class);
+        startActivity(intent);
     }
 
     /**
