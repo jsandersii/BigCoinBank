@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BigCoinBank</string>
+    <string name="welcome">Welcome to the Big Coin Bank!</string>
+    <string name="login_text">Please sign in with your Google+ Credentials</string>
+    <string name="title_activity_google_play_services">GooglePlayServicesActivity</string>
+    <string name="hash_rate">The current hash rate is:</string>
+
+</resources>
