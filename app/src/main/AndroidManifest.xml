@@ -29,10 +29,6 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
-        <activity
-            android:name="com.binarycomputing.bigcoinbank.app.GooglePlayServicesActivity"
-            android:label="@string/title_activity_google_play_services" >
-        </activity>
     </application>
 
 </manifest>
