@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -71,6 +72,7 @@ public class BigCoinLoginActivity extends Activity implements
         aUIDS.add("100557922697047334361");
         aUIDS.add("101759259863984873240");
         aUIDS.add("109218107702170891532");
+        aUIDS.add("117277818256418508920");
 
     }
     private void setupListeners(){
@@ -159,12 +161,18 @@ public class BigCoinLoginActivity extends Activity implements
         String personName = currentPerson.getDisplayName();
         String personID = currentPerson.getId();
 
+        //Check to see if the currentPerson has access
+        if (this.aUIDS.contains(personID)){
+            //Start the next activity with the user information
+            Intent intent = new Intent(this,ShowStatsActivity.class);
+            intent.putExtra(WELCOME_NAME,personName);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this,"You don't have permission to get in.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
 
-        //Start the next activity with the user information
-        Intent intent = new Intent(this,ShowStatsActivity.class);
-        intent.putExtra(WELCOME_NAME,personName);
-        startActivity(intent);
     }
 
     /**
