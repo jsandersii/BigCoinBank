@@ -15,17 +15,23 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.model.people.Person;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class BigCoinLoginActivity extends Activity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
+    public  static final String WELCOME_NAME = "com.binarycomputing.bigcoinbank.app.PERSON";
     private static final String TAG = "BigCoinLoginActivity";
 
     private static final String KEY_IN_RESOLUTION = "is_in_resolution";
 
     private com.google.android.gms.common.SignInButton mBtnSignIn = null;
     private View.OnClickListener mOnClickListener = null;
+    private ArrayList<String> aUIDS = null;
 
     /**
      * Request code for auto Google Play Services error resolution.
@@ -61,6 +67,10 @@ public class BigCoinLoginActivity extends Activity implements
     }
     // Define Controls here
     private void setupGlobal(){
+        aUIDS = new ArrayList<String>();
+        aUIDS.add("100557922697047334361");
+        aUIDS.add("101759259863984873240");
+        aUIDS.add("109218107702170891532");
 
     }
     private void setupListeners(){
@@ -144,7 +154,16 @@ public class BigCoinLoginActivity extends Activity implements
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.i(TAG, "GoogleApiClient connected");
+        //Get the name of the user logging in.
+        Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+        String personName = currentPerson.getDisplayName();
+        String personID = currentPerson.getId();
+
+
+
+        //Start the next activity with the user information
         Intent intent = new Intent(this,ShowStatsActivity.class);
+        intent.putExtra(WELCOME_NAME,personName);
         startActivity(intent);
     }
 

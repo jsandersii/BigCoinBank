@@ -8,6 +8,7 @@ import android.content.IntentSender.SendIntentException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -19,6 +20,7 @@ public class ShowStatsActivity extends Activity {
     private final String TAG = "TAG"+getClass().getSimpleName();
 
     private View.OnClickListener mOnClickListener = null;
+    private TextView showstatsactivity_tvcurrentperson = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,17 @@ public class ShowStatsActivity extends Activity {
         setupGlobal();
         setupListeners();
         setupViews();
+        Intent intent = null;
+        String welcomePerson = null;
 
+        // Get Intent message
+        if (getIntent().getExtras() !=null) {
+            intent = getIntent();
+            welcomePerson = intent.getStringExtra (BigCoinLoginActivity.WELCOME_NAME);
+
+            // Use the received intent message to personalize the welcome message
+            showstatsactivity_tvcurrentperson.setText(welcomePerson);
+        }
     }
     // Define Controls here
     private void setupGlobal(){
@@ -44,7 +56,7 @@ public class ShowStatsActivity extends Activity {
         };
     }
     private void setupViews(){
-
+    showstatsactivity_tvcurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvcurrentperson);
 
     }
 
