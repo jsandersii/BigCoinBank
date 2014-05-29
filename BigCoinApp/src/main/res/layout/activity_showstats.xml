@@ -5,32 +5,69 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/showstatsactivity_tvwelcome"
+        android:id="@+id/showstatsactivity_tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/showstatsactivity_tvcurrentperson"
+        android:layout_toLeftOf="@+id/showstatsactivity_tvCurrentperson"
         android:layout_marginRight="2dp"
         android:padding="1dp"
         android:text="@string/welcome_person"/>
     <TextView
-        android:id="@+id/showstatsactivity_tvcurrentperson"
+        android:id="@+id/showstatsactivity_tvCurrentperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="1dp"/>
     <TextView
-        android:id="@+id/showstatsactivity_tvhashrate"
+        android:id="@+id/showstatsactivity_tvHashrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="60dp"
         android:padding="10dp"
         android:text="@string/hash_rate"
-        android:textSize="12pt"/>
+        android:textSize="10pt"/>
     <TextView
+        android:id="@+id/showstatsactivity_tvGethash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/showstatsactivity_tvhashrate"/>
-
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/showstatsactivity_tvHashrate"
+        android:padding="10dp"
+        android:textSize="8pt"/>
+    <TextView
+        android:id="@+id/showstatsactivity_tvDifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/showstatsactivity_tvGethash"
+        android:padding="10dp"
+        android:text="@string/difficulty"
+        android:textSize="10pt"/>
+    <TextView
+        android:id="@+id/showstatsactivity_tvGetdifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/showstatsactivity_tvDifficulty"
+        android:padding="10dp"
+        android:textSize="8pt"/>
+    <TextView
+        android:id="@+id/showstatsactivity_tvTotalbtm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/showstatsactivity_tvGetdifficulty"
+        android:padding="10dp"
+        android:text="@string/total_btm"
+        android:textSize="10pt"/>
+    <TextView
+        android:id="@+id/showstatsactivity_tvGettotalbtm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/showstatsactivity_tvTotalbtm"
+        android:padding="10dp"
+        android:textSize="8pt"/>
 
 </RelativeLayout>

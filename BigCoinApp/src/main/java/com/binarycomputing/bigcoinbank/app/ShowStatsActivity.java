@@ -15,12 +15,26 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import javax.net.ssl.HttpsURLConnection;
+
 public class ShowStatsActivity extends Activity {
 
     private final String TAG = "TAG"+getClass().getSimpleName();
 
     private View.OnClickListener mOnClickListener = null;
-    private TextView showstatsactivity_tvcurrentperson = null;
+    private TextView showstatsactivity_tvCurrentperson = null;
+    private TextView showstatsactivity_tvGetdifficulty = null;
+    private HttpClient mBlockExplorer = null;
+    private HttpGet mGetDifficulty = null;
+    private HttpGet mGetCurrentHash = null;
+    private HttpGet mGetTotalBtm = null;
+    private String mDiff_URL = null;
+    private String mHash_URL = null;
+    private String mBtm_URL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +54,12 @@ public class ShowStatsActivity extends Activity {
             welcomePerson = intent.getStringExtra (BigCoinLoginActivity.WELCOME_NAME);
 
             // Use the received intent message to personalize the welcome message
-            showstatsactivity_tvcurrentperson.setText(welcomePerson);
+            showstatsactivity_tvCurrentperson.setText(welcomePerson);
         }
     }
     // Define Controls here
     private void setupGlobal(){
+        mDiff_URL = (HttpsURLConnection)
 
     }
     private void setupListeners(){
@@ -56,7 +71,7 @@ public class ShowStatsActivity extends Activity {
         };
     }
     private void setupViews(){
-    showstatsactivity_tvcurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvcurrentperson);
+    showstatsactivity_tvCurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvCurrentperson);
 
     }
 
