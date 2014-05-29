@@ -73,6 +73,7 @@ public class BigCoinLoginActivity extends Activity implements
         aUIDS.add("101759259863984873240");
         aUIDS.add("109218107702170891532");
         aUIDS.add("117277818256418508920");
+        aUIDS.add("111505760421734215603");
 
     }
     private void setupListeners(){
@@ -168,7 +169,7 @@ public class BigCoinLoginActivity extends Activity implements
             intent.putExtra(WELCOME_NAME,personName);
             startActivity(intent);
         } else {
-            Toast.makeText(this,"You don't have permission to get in.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"You don't have permission to use this app...sorry :(.", Toast.LENGTH_SHORT).show();
             finish();
         }
 
