@@ -32,7 +32,7 @@ public class BigCoinLoginActivity extends Activity implements
 
     private com.google.android.gms.common.SignInButton mBtnSignIn = null;
     private View.OnClickListener mOnClickListener = null;
-    private ArrayList<String> aUIDS = null;
+    private ArrayList<String> mAryUIDS = null;
 
     /**
      * Request code for auto Google Play Services error resolution.
@@ -68,12 +68,12 @@ public class BigCoinLoginActivity extends Activity implements
     }
     // Define Controls here
     private void setupGlobal(){
-        aUIDS = new ArrayList<String>();
-        aUIDS.add("100557922697047334361");
-        aUIDS.add("101759259863984873240");
-        aUIDS.add("109218107702170891532");
-        aUIDS.add("117277818256418508920");
-        aUIDS.add("111505760421734215603");
+        mAryUIDS = new ArrayList<String>();
+        mAryUIDS.add("100557922697047334361");
+        mAryUIDS.add("101759259863984873240");
+        mAryUIDS.add("109218107702170891532");
+        mAryUIDS.add("117277818256418508920");
+        mAryUIDS.add("111505760421734215603");
 
     }
     private void setupListeners(){
@@ -163,7 +163,7 @@ public class BigCoinLoginActivity extends Activity implements
         String personID = currentPerson.getId();
 
         //Check to see if the currentPerson has access
-        if (this.aUIDS.contains(personID)){
+        if (this.mAryUIDS.contains(personID)){
             //Start the next activity with the user information
             Intent intent = new Intent(this,ShowStatsActivity.class);
             intent.putExtra(WELCOME_NAME,personName);
