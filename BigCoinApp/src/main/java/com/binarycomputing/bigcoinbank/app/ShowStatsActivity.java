@@ -76,7 +76,7 @@ public class ShowStatsActivity extends Activity {
             welcomePerson = intent.getStringExtra (BigCoinLoginActivity.WELCOME_NAME);
 
             // Use the received intent message to personalize the welcome message
-            showstatsactivity_tvCurrentperson.setText(welcomePerson);
+            showstatsactivity_tvCurrentperson.setText("Welcome " + welcomePerson +"!");
         }
 
         //Using AsyncTask to grab data
@@ -177,8 +177,8 @@ public class ShowStatsActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result){
-            showstatsactivity_tvGethash.setText(statusHash);
-            showstatsactivity_tvGettotalbtm.setText(statusTotal);
+            showstatsactivity_tvGethash.setText("Hash rate: " + "\n" + statusHash);
+            showstatsactivity_tvGettotalbtm.setText("Total Bit coins: " + "\n" + statusTotal);
             showstatsactivity_tvHaroldcoin.setText("Harold's coins: " + statusHaroldCoin);
             showstatsactivity_tvJamescoin.setText("James' coins: " + statusJamesCoin);
             showstatsactivity_tvMelvincoin.setText("Melvin's coins: " + statusMelvinCoin);
