@@ -25,6 +25,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -42,6 +43,11 @@ public class ShowStatsActivity extends Activity {
     private TextView showstatsactivity_tvCurrentperson = null;
     private TextView showstatsactivity_tvGethash = null;
     private TextView showstatsactivity_tvGettotalbtm = null;
+    private TextView showstatsactivity_tvHaroldcoin = null;
+    private TextView showstatsactivity_tvJamescoin = null;
+    private TextView showstatsactivity_tvMelvincoin = null;
+    private TextView showstatsactivity_tvNakiacoin = null;
+    private TextView showstatsactivity_tvCalebcoin = null;
 
     private String statusHash = null;
     private String statusTotal = null;
@@ -93,6 +99,11 @@ public class ShowStatsActivity extends Activity {
     showstatsactivity_tvCurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvCurrentperson);
     showstatsactivity_tvGethash = (TextView)findViewById(R.id.showstatsactivity_tvGethash);
     showstatsactivity_tvGettotalbtm = (TextView)findViewById(R.id.showstatsactivity_tvGettotalbtm);
+    showstatsactivity_tvHaroldcoin = (TextView)findViewById(R.id.showstatsactivity_tvHaroldcoin);
+    showstatsactivity_tvJamescoin = (TextView)findViewById(R.id.showstatsactivity_tvJamescoin);
+    showstatsactivity_tvMelvincoin = (TextView)findViewById(R.id.showstatsactiviy_tvMelvincoin);
+    showstatsactivity_tvNakiacoin = (TextView)findViewById(R.id.showstatsactivity_tvNakiacoin);
+    showstatsactivity_tvCalebcoin = (TextView)findViewById(R.id.showstatsactivity_tvCalebcoin);
 
     }
     //Define Async Class
@@ -151,6 +162,11 @@ public class ShowStatsActivity extends Activity {
 
                 statusHash = jsonObject.getString("hash");
                 statusTotal = jsonObject.getString("totalcoin");
+                statusHaroldCoin = jsonObject.getString("haroldcoin");
+                statusJamesCoin = jsonObject.getString("jamescoin");
+                statusMelvinCoin = jsonObject.getString("melvincoin");
+                statusNakiaCoin = jsonObject.getString("nakiacoin");
+                statusCalebCoin = jsonObject.getString("calebcoin");
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -163,6 +179,11 @@ public class ShowStatsActivity extends Activity {
         protected void onPostExecute(String result){
             showstatsactivity_tvGethash.setText(statusHash);
             showstatsactivity_tvGettotalbtm.setText(statusTotal);
+            showstatsactivity_tvHaroldcoin.setText("Harold's coins: " + statusHaroldCoin);
+            showstatsactivity_tvJamescoin.setText("James' coins: " + statusJamesCoin);
+            showstatsactivity_tvMelvincoin.setText("Melvin's coins: " + statusMelvinCoin);
+            showstatsactivity_tvNakiacoin.setText("Nakia's coins: " + statusNakiaCoin);
+            showstatsactivity_tvCalebcoin.setText("Caleb's coins: " + statusCalebCoin);
 
         }
     }

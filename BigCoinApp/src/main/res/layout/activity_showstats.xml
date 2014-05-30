@@ -11,13 +11,15 @@
         android:layout_toLeftOf="@+id/showstatsactivity_tvCurrentperson"
         android:layout_marginRight="2dp"
         android:padding="1dp"
-        android:text="@string/welcome_person"/>
+        android:text="@string/welcome_person"
+        android:textSize="20dp" />
     <TextView
         android:id="@+id/showstatsactivity_tvCurrentperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:padding="1dp"/>
+        android:padding="1dp"
+        android:textSize="20dp" />
     <TextView
         android:id="@+id/showstatsactivity_tvHashrate"
         android:layout_width="wrap_content"
@@ -53,5 +55,85 @@
         android:layout_below="@+id/showstatsactivity_tvTotalbtm"
         android:padding="10dp"
         android:textSize="8pt"/>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/showstatsactivity_tvGettotalbtm"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@+id/showstatsactivity_tvGettotalbtm"
+        android:id="@+id/showstatsactivity_tabGroupcoins">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Harold's coins:"
+                android:id="@+id/showstatsactivity_tvHaroldcoin"
+                android:padding="5dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="James' coins:"
+                android:id="@+id/showstatsactivity_tvJamescoin"
+                android:layout_column="0"
+                android:padding="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Melvin's coins:"
+                android:id="@+id/showstatsactiviy_tvMelvincoin"
+                android:layout_column="0"
+                android:padding="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nakia's coins:"
+                android:id="@+id/showstatsactivity_tvNakiacoin"
+                android:layout_column="0"
+                android:padding="5dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Caleb's coins:"
+                android:id="@+id/showstatsactivity_tvCalebcoin"
+                android:layout_column="0"
+                android:padding="5dp"/>
+        </TableRow>
+
+    </TableLayout>
 
 </RelativeLayout>
