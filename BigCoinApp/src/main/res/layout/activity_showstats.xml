@@ -35,29 +35,13 @@
         android:layout_below="@+id/showstatsactivity_tvHashrate"
         android:padding="10dp"
         android:textSize="8pt"/>
-    <TextView
-        android:id="@+id/showstatsactivity_tvDifficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/showstatsactivity_tvGethash"
-        android:padding="10dp"
-        android:text="@string/difficulty"
-        android:textSize="10pt"/>
-    <TextView
-        android:id="@+id/showstatsactivity_tvGetdifficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/showstatsactivity_tvDifficulty"
-        android:padding="10dp"
-        android:textSize="8pt"/>
+
     <TextView
         android:id="@+id/showstatsactivity_tvTotalbtm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/showstatsactivity_tvGetdifficulty"
+        android:layout_below="@+id/showstatsactivity_tvGethash"
         android:padding="10dp"
         android:text="@string/total_btm"
         android:textSize="10pt"/>

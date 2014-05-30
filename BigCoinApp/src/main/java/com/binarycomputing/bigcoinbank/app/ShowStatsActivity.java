@@ -36,13 +36,13 @@ public class ShowStatsActivity extends Activity {
 
     private final String TAG = "TAG"+getClass().getSimpleName();
     private final String bigCoinStatus = "http://www.binary-computing.com/bigcoin/status.asp";
-    //private final String blockExplorerDifficulty = "https://blockexplorer.com/q/getdifficulty";
+
     private View.OnClickListener mOnClickListener = null;
+
     private TextView showstatsactivity_tvCurrentperson = null;
     private TextView showstatsactivity_tvGethash = null;
     private TextView showstatsactivity_tvGettotalbtm = null;
-    private TextView showstatsactivity_tvGetdifficulty = null;
-    private String statusDifficulty = null;
+
     private String statusHash = null;
     private String statusTotal = null;
     private String statusJamesCoin = null;
@@ -93,7 +93,6 @@ public class ShowStatsActivity extends Activity {
     showstatsactivity_tvCurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvCurrentperson);
     showstatsactivity_tvGethash = (TextView)findViewById(R.id.showstatsactivity_tvGethash);
     showstatsactivity_tvGettotalbtm = (TextView)findViewById(R.id.showstatsactivity_tvGettotalbtm);
-    showstatsactivity_tvGetdifficulty = (TextView)findViewById(R.id.showstatsactivity_tvGetdifficulty);
 
     }
     //Define Async Class
@@ -146,19 +145,12 @@ public class ShowStatsActivity extends Activity {
 
             try{
 
-                //result = result.substring(1);
-                //result = result.substring(0,result.length()-1);
-
-                Log.v("JSONParser RESULT",result);
+                //Log.v("JSONParser RESULT",result);
 
                 jsonObject = new JSONObject(result);
-                //JSONObject difficultyJSONObject = jsonObject.getJSONObject("getdifficulty");
-                JSONObject hashJSONObject = jsonObject.getJSONObject("hash");
-                JSONObject totalcoinJSONObject = jsonObject.getJSONObject("totalcoin");
 
-                //statusDifficulty = difficultyJSONObject.getDouble("getdifficulty");
-                statusHash = hashJSONObject.getString("hash");
-                statusTotal = totalcoinJSONObject.getString("totalcoin");
+                statusHash = jsonObject.getString("hash");
+                statusTotal = jsonObject.getString("totalcoin");
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -169,7 +161,6 @@ public class ShowStatsActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result){
-            //showstatsactivity_tvGetdifficulty.setText(statusDifficulty);
             showstatsactivity_tvGethash.setText(statusHash);
             showstatsactivity_tvGettotalbtm.setText(statusTotal);
 
