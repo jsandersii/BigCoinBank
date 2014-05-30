@@ -35,7 +35,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class ShowStatsActivity extends Activity {
 
     private final String TAG = "TAG"+getClass().getSimpleName();
-    private final String bigCoinStatus = "http://www.binary-computing.com/bigcoin/status.json";
+    private final String bigCoinStatus = "http://www.binary-computing.com/bigcoin/status.asp";
     //private final String blockExplorerDifficulty = "https://blockexplorer.com/q/getdifficulty";
     private View.OnClickListener mOnClickListener = null;
     private TextView showstatsactivity_tvCurrentperson = null;
@@ -97,7 +97,7 @@ public class ShowStatsActivity extends Activity {
 
     }
     //Define Async Class
-    private class CoinAsyncTask extends AsyncTask<String,String,String>{
+    private class CoinAsyncTask extends AsyncTask<String, String, String>{
 
         @Override
         protected String doInBackground(String...Params){
@@ -145,17 +145,20 @@ public class ShowStatsActivity extends Activity {
             JSONObject jsonObject;
 
             try{
-                //result = result.substring(0);
-                //result = result.substring(0, result.length()-2);
-                //Log.v("JSONParser RESULT ". result);
+
+                //result = result.substring(1);
+                //result = result.substring(0,result.length()-1);
+
+                Log.v("JSONParser RESULT",result);
+
                 jsonObject = new JSONObject(result);
                 //JSONObject difficultyJSONObject = jsonObject.getJSONObject("getdifficulty");
                 JSONObject hashJSONObject = jsonObject.getJSONObject("hash");
-                //JSONObject totalcoinJSONObject = jsonObject.getJSONObject("totalcoin");
+                JSONObject totalcoinJSONObject = jsonObject.getJSONObject("totalcoin");
 
-                //statusDifficulty = difficultyJSONObject.getString("getdifficulty");
+                //statusDifficulty = difficultyJSONObject.getDouble("getdifficulty");
                 statusHash = hashJSONObject.getString("hash");
-                //statusTotal = totalcoinJSONObject.getString("totalcoin");
+                statusTotal = totalcoinJSONObject.getString("totalcoin");
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -168,7 +171,7 @@ public class ShowStatsActivity extends Activity {
         protected void onPostExecute(String result){
             //showstatsactivity_tvGetdifficulty.setText(statusDifficulty);
             showstatsactivity_tvGethash.setText(statusHash);
-            //showstatsactivity_tvGettotalbtm.setText(statusTotal);
+            showstatsactivity_tvGettotalbtm.setText(statusTotal);
 
         }
     }
