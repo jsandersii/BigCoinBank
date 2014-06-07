@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -41,6 +44,7 @@ public class ShowStatsActivity extends Activity {
     private View.OnClickListener mOnClickListener = null;
 
     private TextView showstatsactivity_tvCurrentperson = null;
+    private TextView showstatsactivity_tvCurrentprice = null;
     private TextView showstatsactivity_tvGethash = null;
     private TextView showstatsactivity_tvGettotalbtm = null;
     private TextView showstatsactivity_tvHaroldcoin = null;
@@ -51,11 +55,15 @@ public class ShowStatsActivity extends Activity {
 
     private String statusHash = null;
     private String statusTotal = null;
+    private String statusCurrentPrice = null;
     private String statusJamesCoin = null;
     private String statusHaroldCoin = null;
     private String statusMelvinCoin = null;
     private String statusNakiaCoin = null;
     private String statusCalebCoin = null;
+
+    private ProgressBar spinner = null;
+
 
 
     @Override
@@ -97,6 +105,7 @@ public class ShowStatsActivity extends Activity {
     }
     private void setupViews(){
     showstatsactivity_tvCurrentperson = (TextView)findViewById(R.id.showstatsactivity_tvCurrentperson);
+    showstatsactivity_tvCurrentprice = (TextView)findViewById(R.id.showstatsactivity_tvCurrentprice);
     showstatsactivity_tvGethash = (TextView)findViewById(R.id.showstatsactivity_tvGethash);
     showstatsactivity_tvGettotalbtm = (TextView)findViewById(R.id.showstatsactivity_tvGettotalbtm);
     showstatsactivity_tvHaroldcoin = (TextView)findViewById(R.id.showstatsactivity_tvHaroldcoin);
@@ -104,6 +113,8 @@ public class ShowStatsActivity extends Activity {
     showstatsactivity_tvMelvincoin = (TextView)findViewById(R.id.showstatsactiviy_tvMelvincoin);
     showstatsactivity_tvNakiacoin = (TextView)findViewById(R.id.showstatsactivity_tvNakiacoin);
     showstatsactivity_tvCalebcoin = (TextView)findViewById(R.id.showstatsactivity_tvCalebcoin);
+    spinner = (ProgressBar)findViewById(R.id.showstatsactivity_progressbar);
+
 
     }
     //Define Async Class
@@ -111,6 +122,9 @@ public class ShowStatsActivity extends Activity {
 
         @Override
         protected String doInBackground(String...Params){
+
+            // Activate loading progress bar
+            spinner.setVisibility(View.VISIBLE);
 
             DefaultHttpClient httpClient = new DefaultHttpClient(new BasicHttpParams());
 
@@ -167,6 +181,7 @@ public class ShowStatsActivity extends Activity {
                 statusMelvinCoin = jsonObject.getString("melvincoin");
                 statusNakiaCoin = jsonObject.getString("nakiacoin");
                 statusCalebCoin = jsonObject.getString("calebcoin");
+                statusCurrentPrice = jsonObject.getString("currentprice");
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -177,13 +192,17 @@ public class ShowStatsActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result){
-            showstatsactivity_tvGethash.setText("Hash rate: " + "\n" + statusHash);
-            showstatsactivity_tvGettotalbtm.setText("Total Bit coins: " + "\n" + statusTotal);
+            showstatsactivity_tvCurrentprice.setText("Current Price: " + statusCurrentPrice);
+            showstatsactivity_tvGethash.setText("Hash Rate: " + "\n" + statusHash);
+            showstatsactivity_tvGettotalbtm.setText("Total Bit Coins: " + "\n" + statusTotal);
             showstatsactivity_tvHaroldcoin.setText("Harold's coins: " + statusHaroldCoin);
             showstatsactivity_tvJamescoin.setText("James' coins: " + statusJamesCoin);
             showstatsactivity_tvMelvincoin.setText("Melvin's coins: " + statusMelvinCoin);
             showstatsactivity_tvNakiacoin.setText("Nakia's coins: " + statusNakiaCoin);
             showstatsactivity_tvCalebcoin.setText("Caleb's coins: " + statusCalebCoin);
+
+            // Deactivate progress bar
+            spinner.setVisibility(View.GONE);
 
         }
     }
