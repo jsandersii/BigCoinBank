@@ -6,9 +6,10 @@
     <string name="welcome_person">Welcome</string>
     <string name="login_text">Please sign in with your Google+ Credentials</string>
     <string name="title_activity_google_play_services">GooglePlayServicesActivity</string>
-    <string name="hash_rate">The current hash rate is:</string>
+    <string name="hash_rate">Hash Rate:</string>
     <string name="difficulty">The current difficulty is:</string>
-    <string name="total_btm">The total Bit Coins mined:</string>
+    <string name="total_btm">Total Bit Coins:</string>
     <string name="btc_share">Our share of the Bit Coins mined:</string>
+    <string name="current_price">Current price:</string>
 
 </resources>
